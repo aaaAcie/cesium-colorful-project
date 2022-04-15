@@ -4,28 +4,30 @@
       <button class="btn" @click="clickAccess">走进七彩小镇</button>
     </div>
   </div>
-	<overview v-else="initBool"></overview>
-
-  <homeHeaderVue/>
+  <div v-else>
+    <homeHeaderVue />
+    <homeFooter />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>
 import { ref, reactive, getCurrentInstance, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import overview from './overview/overview.vue'
-import homeHeaderVue from '../components/homeHeader.vue';
-const router = useRouter()
-
-let initBool = ref(fasle)
+import homeHeaderVue from '@/components/homeHeader.vue'
+import homeFooter from '@/components/homeFooter.vue'
+// 引入全局变量
+const { appContext : { config: { globalProperties } } } = getCurrentInstance()
+// 隐藏按钮
+let initBool=ref(true)
+// 创建cesium实例对象
 const data = reactive({
-	cesium3d: {},
+	cesium3d: {}
 })
+
 onMounted(()=>{
-	const { appContext : { config: { globalProperties } } } = getCurrentInstance()
-	
-	console.log(globalProperties.$Cesium3d)
 	data.cesium3d = globalProperties.$Cesium3d
 })
+// 点击改变按钮隐藏
 function clickAccess() {
 	data.cesium3d.earthRotate(false)
 	initBool.value = false

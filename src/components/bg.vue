@@ -23,10 +23,9 @@
 
 <style lang="less" scoped>
 .biggest-container {
-  position: relative;
+  // position: relative;
   width: 100%;
   height: 100%;
-  // background-color: white;
   .left{
     z-index: 900000;
     position: absolute;
