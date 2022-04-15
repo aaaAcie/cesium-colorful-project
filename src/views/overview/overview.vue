@@ -12,8 +12,12 @@
     </template>
 
 		<template #second>
-			<chart-bg name="积分来源"></chart-bg>
-
+			<chart-bg name="积分来源">
+				<!-- 给chart-bg组件传具体的图表 -->
+				<template #main>
+					
+				</template>
+			</chart-bg>
     </template>
 	</bg>
 </template>
