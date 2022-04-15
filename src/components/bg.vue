@@ -3,10 +3,14 @@
     <div class="left">
       <slot name="first"></slot>
       <slot name="second"></slot>
-
+      <slot name="third"></slot>
+      <slot name="forth"></slot>
     </div>
     <div class="left right">
-
+      <slot name="first2"></slot>
+      <slot name="second2"></slot>
+      <slot name="third2"></slot>
+      <slot name="forth2"></slot>
     </div>
 
   </div>

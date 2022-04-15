@@ -4,7 +4,7 @@
       <button class="btn" @click="clickAccess">走进七彩小镇</button>
     </div>
   </div>
-	<overview v-else="initBool"></overview>
+  <overview v-else="initBool"></overview>
 </template>
 
 <script setup>
