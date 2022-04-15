@@ -4,16 +4,19 @@
       <button class="btn" @click="clickAccess">走进七彩小镇</button>
     </div>
   </div>
-  <overview v-else="initBool"></overview>
+	<overview v-else="initBool"></overview>
+
+  <homeHeaderVue/>
 </template>
 
 <script setup>
 import { ref, reactive, getCurrentInstance, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import overview from './overview/overview.vue'
+import homeHeaderVue from '../components/homeHeader.vue';
 const router = useRouter()
 
-let initBool = ref(true)
+let initBool = ref(fasle)
 const data = reactive({
 	cesium3d: {},
 })
