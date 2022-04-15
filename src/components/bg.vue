@@ -30,7 +30,7 @@
     left: 0;
     width: 352px;
     height: 692px;
-    background-color: green;
+    background-color: rgba(8, 19, 32, 1);
   }
   .right {
     left: auto;

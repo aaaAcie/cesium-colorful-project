@@ -2,14 +2,15 @@
 <div class="chart">
   <div class="title">
     <div class="pre">
-      <span class="triangle">123</span>
+      <img class="triangle" src="../../public/title.png">
     </div>
     <span class="text">{{ name }}</span>
     <div class="pre back">
-      <span class="triangle">123</span>
+      <img class="triangle" src="../../public/title.png">
     </div>
   </div>
-  <!-- 图表放在这里 -->
+  <!-- 图表放在这里 接受传来的图表 -->
+  <slot name="main"></slot>
 </div>
 </template>
 
@@ -29,6 +30,7 @@
   padding: 8px 15px;
   .title {
     display: flex;
+    align-items: center;
     height: 22px;
     width: 140px;
     .pre {
@@ -36,11 +38,12 @@
       .triangle {
         width: 9px;
         height: 13px;
-        background: linear-gradient(180deg, #41C7FF 0%, rgba(41, 117, 212, 0) 100%);
-        opacity: 1;
       }
     }
     .text {
+      font-weight: 700;
+      flex-grow: 1;
+      text-align: center;
       font-size: 15px;
       line-height: 26px;
       color: #FFFFFF;
