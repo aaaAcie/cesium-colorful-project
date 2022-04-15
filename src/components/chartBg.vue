@@ -2,11 +2,11 @@
 <div class="chart">
   <div class="title">
     <div class="pre">
-      <img class="triangle" src="../../public/title.png">
+      <img class="triangle" src="title.png">
     </div>
     <span class="text">{{ name }}</span>
     <div class="pre back">
-      <img class="triangle" src="../../public/title.png">
+      <img class="triangle" src="title.png">
     </div>
   </div>
   <!-- 图表放在这里 接受传来的图表 -->
