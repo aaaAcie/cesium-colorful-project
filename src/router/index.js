@@ -4,11 +4,15 @@ const routes = [
     path:'/',
     name: 'home',
     component: () => import('../views/Home.vue'),
-  },{
-    path:'/overview',
-    name: 'overview',
-    component: () => import('../views/overview/overview.vue'),
-  }
+    redirect:'overview',
+    children:[
+      {
+        path:'/overview',
+        name: 'overview',
+        component: () => import('../views/overview/overview.vue'),
+      }
+    ]
+  },
 ]
 const router = createRouter({
   history:createWebHashHistory(),
