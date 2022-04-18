@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     height: 22px;
+    margin-bottom: 7px;
     // width: 220px;
     .pre {
       width: 12px;

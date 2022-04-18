@@ -34,11 +34,11 @@
     position: absolute;
     top: 70px;
     left: 0;
-    // width: 352px;
-    // height: 692px;
-    width: 30%;
-    max-width: 352px;
-    height: 90%;
+    width: 352px;
+    height: 692px;
+    // width: 30%;
+    // max-width: 352px;
+    // height: 90%;
     background-color: rgba(8, 19, 32, 1);
   }
   .right {
