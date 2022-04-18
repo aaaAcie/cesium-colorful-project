@@ -27,12 +27,18 @@
   width: 100%;
   height: 100%;
   .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     z-index: 900000;
     position: absolute;
     top: 70px;
     left: 0;
-    width: 352px;
-    height: 692px;
+    // width: 352px;
+    // height: 692px;
+    width: 30%;
+    max-width: 352px;
+    height: 90%;
     background-color: rgba(8, 19, 32, 1);
   }
   .right {

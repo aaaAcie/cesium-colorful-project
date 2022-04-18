@@ -9,9 +9,16 @@
 				</template>
 			</chart-bg>
 		</template>
-
 		<template #second>
 			<chart-bg name="停车场情况">
+				<!-- 给chart-bg组件传具体的图表 -->
+				<template #main>
+
+				</template>
+			</chart-bg>
+		</template>
+		<template #third>
+			<chart-bg name="设备工单数量">
 				<!-- 给chart-bg组件传具体的图表 -->
 				<template #main>
 
@@ -36,7 +43,22 @@
 				</template>
 			</chart-bg>
 		</template>
+		<template #third2>
+			<chart-bg name="AI事件统计">
+				<!-- 给chart-bg组件传具体的图表 -->
+				<template #main>
 
+				</template>
+			</chart-bg>
+		</template>
+		<template #forth2>
+			<chart-bg name="品质管理统计（年）">
+				<!-- 给chart-bg组件传具体的图表 -->
+				<template #main>
+
+				</template>
+			</chart-bg>
+		</template>
 	</bg>
 </template>
 <script setup>
