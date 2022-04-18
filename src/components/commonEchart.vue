@@ -3,8 +3,7 @@
 </template>
 
 <script setup>
-import { computed } from '@vue/reactivity'
-import { reactive, getCurrentInstance,onMounted  } from 'vue'
+import { reactive, getCurrentInstance,onMounted,nextTick  } from 'vue'
 // defineProps 用来接收父组件传来的 props ; defineEmits 用来声明触发的事件
 const { pos, option, width, height } = defineProps({
   pos: {
@@ -27,11 +26,13 @@ const { pos, option, width, height } = defineProps({
 const emit = defineEmits(['getMychart'])
 
 const { appContext : { config: { globalProperties } } } = getCurrentInstance()
-  const echarts = globalProperties.$echarts
+const echarts = globalProperties.$echarts
 
-  onMounted(() => {
+onMounted(() => {
+  nextTick(() => {
+    // nextTick
     const box = document.getElementById(pos)
-    // console.log(box)
+    // console.log(pos,box)
     box.style.width = width + "px"
     box.style.height = height + "px"
     let myChart = reactive(echarts.init(box))
@@ -41,12 +42,13 @@ const { appContext : { config: { globalProperties } } } = getCurrentInstance()
     window.onresize = function () {
       myChart.resize()
     }
-
   })
 
-  let fresh = (myChart, option) => {
-    myChart.setOption(option)
-  }
+})
+
+let fresh = (myChart, option) => {
+  myChart.setOption(option)
+}
 </script>
 
 <style lang="scss" scoped></style>

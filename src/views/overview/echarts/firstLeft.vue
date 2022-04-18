@@ -11,6 +11,7 @@
       required: true
     }
   })
+  console.log(pos,'first-left')
 
   // 定义 data
   let data = reactive({

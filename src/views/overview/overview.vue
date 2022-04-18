@@ -36,10 +36,10 @@
 			</chart-bg>
 		</template>
 		<template #second2>
-			<chart-bg name="工时实时统计">
+			<chart-bg name="工单实时统计">
 				<!-- 给chart-bg组件传具体的图表 -->
 				<template #main>
-
+					<second-right pos="overview-second-right"></second-right>
 				</template>
 			</chart-bg>
 		</template>
@@ -67,6 +67,7 @@ import chartBg from '@/components/chartBg.vue'
 import firstLeft from './echarts/firstLeft.vue'
 import secondLeft from './echarts/secondLeft.vue'
 import thirdLeft from './echarts/thirdLeft.vue'
+import secondRight from './echarts/secondRight.vue'
 
 // let t = '积分总数'
 </script>
