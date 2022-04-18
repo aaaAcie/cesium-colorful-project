@@ -1,5 +1,5 @@
 <template>
-  <common-echart :pos="pos" :option="option" @getMychart="getMychart" width="320" height="140"></common-echart>
+  <common-echart :pos="pos" :option="option" @getMychart="getMychart" width="320" height="170"></common-echart>
 </template>
 
 <script setup>
@@ -16,9 +16,9 @@
   let data = reactive({
     isSet: null, // 为了做判断：当鼠标移动上去的时候，自动高亮就被取消
     charPie3currentIndex: 0,
-    myColor: ['#616bfb', '#41c7ff', '#30efbf'],
-    dataList1: [15, 697, 217],
-    dataTitle: ['访客', '正式员工', '外部员工'],
+    myColor: ['#00deff', '#0095ff', '#30efbf','#ffa041', '#23a3b1', '#749dc0','#7272f8'],
+    dataList1: [3128, 5454,798,465,145,1544,685],
+    dataTitle: ['电瓶车路过告警', '人员离岗告警','垃圾满溢告警', '消防通道违停告警','电瓶车闯入告警', '停车场拥堵告警','明火浓烟告警'],
     dataSeries: [],
     resObj: {},
   })
@@ -38,7 +38,7 @@
   option = {
     // backgroundColor: 'rgba(13,29,70,0.75)',
     grid: {
-      left: '5%',
+      left: '0',
       right: '8%',
       bottom: '3%',
       containLabel: true
@@ -50,14 +50,24 @@
     legend: {
       icon: "circle",
       orient: 'vertical', // 布局方式，默认为水平布局，可选为：'horizontal' ¦ 'vertical'
-      x: '55%',
-      y: '25%',
+      x: '0%',
+      y: '0%',
       textStyle: {
         color: "#FFFFFF",
-        fontSize: 15
+        fontSize: 12
       },
       formatter: function(name) {
-        return name + '   ' + data.resObj[name].value
+        // return name + '   ' + data.resObj[name].value
+        // console.log(name.length)
+        let a=''
+        if(name.length==6){
+          a='          '
+        }else if(name.length==7){
+          a='       '
+        }else{
+          a='   '
+        }
+        return name + a + data.resObj[name].value
       }
     },
     color: data.myColor,
@@ -66,8 +76,8 @@
       itemGap: 20,
       name: '访问来源',
       type: 'pie',
-      radius: ['60%', '80%'],
-      center: ['22%', '50%'],
+      radius: ['55%', '70%'],
+      center: ['75%', '50%'],
       data: data.dataSeries,
       legendHoverLink:false,
       // avoidLabelOverlap: false,
@@ -85,19 +95,26 @@
         label: {
           // formatter: "{b}\n{d}%",
           formatter: function(params){
-            return params.name+'\n'+'{tlabel|'+(params.value/total.value*100).toFixed(0)+'%'+'}'
+            let strs= params.name.split('')
+            let str=''
+            for(let i=0,s;s=strs[i++];){
+              str +=s;
+              if(!(i%5)) str += '\n'; 
+            }
+            return str+'\n'+'{tlabel|'+(params.value/total.value*100).toFixed(2)+'%'+'}'
+            // return params.name+'\n'+'{tlabel|'+(params.value/total.value*100).toFixed(0)+'%'+'}'
           },
           show: true,
           color: "#fff",
           fontSize: 10,
-          lineHeight:24,
+          lineHeight: 13,
           rich:{
             tlabel:{
-              fontSize: 16,
+              fontSize: 18,
+              padding:[16,0,0,0],
               // fontFamily:'DIN'
             }
           },
-          fontWeight: 'bold'
         },
       },
       itemStyle: {

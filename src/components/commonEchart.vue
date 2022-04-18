@@ -23,6 +23,7 @@ const { pos, option, width, height } = defineProps({
     default: '140'
   },
 })
+// console.log(height,'height');
 const emit = defineEmits(['getMychart'])
 
 const { appContext : { config: { globalProperties } } } = getCurrentInstance()

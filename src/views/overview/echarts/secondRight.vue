@@ -11,7 +11,6 @@
       required: true
     }
   })
-  console.log(pos,'second-right')
 
   let data = reactive({
     // dataTemp1: [6, 7, 9, 5, 5],
