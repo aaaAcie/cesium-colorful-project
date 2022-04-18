@@ -1,12 +1,14 @@
 <template>
   <div class="biggest-container">
     <div class="left">
+      <img src="图表_bg.png" alt="">
       <slot name="first"></slot>
       <slot name="second"></slot>
       <slot name="third"></slot>
       <slot name="forth"></slot>
     </div>
     <div class="left right">
+      <img src="图表_bg.png" alt="">
       <slot name="first2"></slot>
       <slot name="second2"></slot>
       <slot name="third2"></slot>
@@ -27,6 +29,14 @@
   width: 100%;
   height: 100%;
   .left{
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,7 +49,7 @@
     // width: 30%;
     // max-width: 352px;
     // height: 90%;
-    background-color: rgba(8, 19, 32, 1);
+    // background-color: rgba(8, 19, 32, 1);
   }
   .right {
     left: auto;
