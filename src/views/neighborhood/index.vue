@@ -75,6 +75,8 @@ import chartBg from '@/components/chartBg.vue'
 // import firstLeft from './echarts/firstLeft.vue'
 import secondLeft from './echarts/secondLeft.vue'
 import thirdLeft from './echarts/thirdLeft.vue'
+import forthLeft from './echarts/forthLeft.vue'
+
 // import secondRight from './echarts/secondRight.vue'
 // import thirdRight from './echarts/thirdRight.vue'
 
