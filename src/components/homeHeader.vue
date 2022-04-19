@@ -26,12 +26,12 @@
   .homeHeader-Item{
     height: 43px;
     width: 40%;
-    background-color: red;
+    background-color: rgba(9, 31, 47, 1);
   }
   .homeHeader-center{
     flex: 1;
     height: 53px;
-    background-color: yellow;
+    background-color: rgba(41, 117, 212, 1);
     p{
       font-size: 1.1vw;
 	    font-weight: 600;

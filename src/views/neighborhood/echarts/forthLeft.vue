@@ -254,7 +254,7 @@
   }
   option2 = getOption24(option2, data1)
   let getMychart2 = (myChart) => {
-    console.log('ok')
+    // console.log('ok')
   }
 
   // 处理第4张图表 data4==data3

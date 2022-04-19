@@ -8,7 +8,8 @@
 </template>
 <script setup>
   import { reactive,ref } from 'vue'
-  let data=reactive({
+  import router from '../router'
+  let data = reactive({
     footerList:[
       {id : 0,name : '总览',ename : 'overview'},
       {id : 1,name : '邻里',ename : 'neighborhood'},
@@ -17,15 +18,18 @@
       {id : 4,name : '创业',ename : 'entrepreneurship'},
       {id : 5,name : '建筑',ename : 'building'},
       {id : 6,name : '交通',ename : 'traffic'},
-      {id : 7,name : '低碳',ename : 'Low carbon'},
+      {id : 7,name : '低碳',ename : 'lowCarbon'},
       {id : 8,name : '服务',ename : 'service'},
       {id : 9,name : '治理',ename : 'Governance'},
     ]
   })
-  let activeName=ref('总览')
+  let activeName = ref('总览')
   function toPush(item){
     
-    activeName.value=item.name
+    activeName.value = item.name
+    router.push({
+      name: item.ename
+    })
     console.log(item.name)
   }
 </script>

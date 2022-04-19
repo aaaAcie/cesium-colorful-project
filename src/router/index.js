@@ -30,12 +30,37 @@ const routes = [
         path:'/service',
         name: 'service',
         component: () => import('../views/service/index.vue'),
+      },
+      {
+        path:'/lowCarbon',
+        name: 'lowCarbon',
+        component: () => import('../views/neighborhood/index.vue'),
+      },
+      {
+        path:'/health',
+        name: 'health',
+        component: () => import('../views/neighborhood/index.vue'),
+      },
+      {
+        path:'/entrepreneurship',
+        name: 'entrepreneurship',
+        component: () => import('../views/neighborhood/index.vue'),
+      },
+      {
+        path:'/Governance',
+        name: 'Governance',
+        component: () => import('../views/neighborhood/index.vue'),
+      },
+      {
+        path:'/education',
+        name: 'education',
+        component: () => import('../views/neighborhood/index.vue'),
       }
     ]
   },
 ]
 const router = createRouter({
-  history:createWebHashHistory(),
+  history: createWebHashHistory(),
   routes
 })
 export default router

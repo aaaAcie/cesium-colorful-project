@@ -140,7 +140,7 @@
 
   // 处理进一步交互
   let getMychart = (myChart) => {
-    console.log('ok')
+    // console.log('ok')
   }
 
 </script>
