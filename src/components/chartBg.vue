@@ -32,7 +32,8 @@
     display: flex;
     align-items: center;
     height: 22px;
-    width: 140px;
+    margin-bottom: 7px;
+    // width: 220px;
     .pre {
       width: 12px;
       .triangle {
@@ -42,7 +43,8 @@
     }
     .text {
       font-weight: 700;
-      flex-grow: 1;
+      margin: 0 12px;
+      // flex-grow: 1;
       text-align: center;
       font-size: 15px;
       line-height: 26px;
