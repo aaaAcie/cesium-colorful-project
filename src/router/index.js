@@ -15,6 +15,21 @@ const routes = [
         path:'/neighborhood',
         name: 'neighborhood',
         component: () => import('../views/neighborhood/index.vue'),
+      },
+      {
+        path:'/traffic',
+        name: 'traffic',
+        component: () => import('../views/traffic/index.vue'),
+      },
+      {
+        path:'/building',
+        name: 'building',
+        component: () => import('../views/building/index.vue'),
+      },
+      {
+        path:'/service',
+        name: 'service',
+        component: () => import('../views/service/index.vue'),
       }
     ]
   },
