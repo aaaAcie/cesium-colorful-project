@@ -14,3 +14,4 @@ app.use(router)
 app.mount('#app')
 const cesium3dd = new Cesium3d()
 app.config.globalProperties.$Cesium3d = cesium3dd
+console.log(cesium3dd)

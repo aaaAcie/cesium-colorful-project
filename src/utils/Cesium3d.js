@@ -5,6 +5,8 @@ class Cesium3d{
     constructor(selector){
         this.container = document.querySelector(selector);
         this.init();//初始化
+        this.viewer = viewer
+        this.onClick()
     }
     init(){
         //初始化场景
@@ -59,7 +61,7 @@ class Cesium3d{
        viewer.scene.terrainProvider.isCreateSkirt = false                    // [ Bool , 关闭裙边 ]
        viewer.scene.globe.enableLighting = true                              // [ Bool , 是否添加全球光照，scene(场景)中的光照将会随着每天时间的变化而变化 ]
        viewer.scene.globe.showGroundAtmosphere = true                        // [ Bool , 是否关闭大气效果 ]
-       // viewer.scene.globe.depthTestAgainstTerrain = true                  // [ Bool , 地面以下不可见（高程遮挡） ]
+       viewer.scene.globe.depthTestAgainstTerrain = true                  // [ Bool , 地面以下不可见（高程遮挡） ]
        viewer._cesiumWidget._creditContainer.style.display = "none" 
     //    viewer.camera.setView({
     //     destination:Cesium.Cartesian3.fromDegrees(121.626568,29.898417,0), //destination用于设置经纬度位置和相机高度
@@ -92,6 +94,7 @@ class Cesium3d{
 	   }))
        // 地球自转开始
        this.earthRotate(true)
+       
     }
     // 地球自转控制
     earthRotate(bool){
@@ -119,6 +122,43 @@ class Cesium3d{
                 roll: 6.283037533269935
             }
         })
+    }
+    onClick(){
+        //定义canvas屏幕点击事件
+		var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+		//注册鼠标事件,event参数是点击的地方是在哪里
+		handler.setInputAction(function (event) {
+				//定义一个屏幕点击的事件，pickPosition封装的是获取点击的位置的坐标
+				var position = viewer.scene.pickPosition(event.position)
+				//输出之后我们发现如前言所说的坐标都是笛卡尔坐标，所以我们需要转换笛卡尔坐标
+				console.log("笛卡尔3: "+position)
+
+                var cartesian = viewer.camera.pickEllipsoid(event.position, viewer.scene.globe.ellipsoid)
+                console.log("林聪: "+ cartesian)
+
+  				//将笛卡尔坐标转化为弧度坐标
+				var cartographic = Cesium.Cartographic.fromCartesian(position)
+				console.log("弧度："+cartographic)
+				//将弧度坐标转换为经纬度坐标
+       			var longitude = Cesium.Math.toDegrees(cartographic.longitude) //经度
+				var latitude = Cesium.Math.toDegrees(cartographic.latitude) //纬度
+				var height = cartographic.height //高度
+				console.log("经纬度："+longitude,latitude,height)
+				// alert("经度："+ longitude + "纬度："+ latitude + "高度："+  height)
+				
+				//同时也可以将经度度转回为笛卡尔 
+				var ellipsoid = viewer.scene.globe.ellipsoid
+				//定义84坐标为一个Cartesian值
+				var wgs84 = Cesium.Cartographic.fromDegrees(longitude, latitude, height)
+				
+				//将84坐标转换为笛卡尔
+				var dikaer = ellipsoid.cartographicToCartesian(wgs84)
+				//赋值
+				var longitude = dikaer.x
+				var latitude = dikaer.y
+				var height = dikaer.z
+				// alert("笛卡尔x: "+ longitude+"笛卡尔y: "+ latitude+"笛卡尔z: "+  height);
+		}, Cesium.ScreenSpaceEventType.LEFT_CLICK)
     }
 }
 export default Cesium3d
