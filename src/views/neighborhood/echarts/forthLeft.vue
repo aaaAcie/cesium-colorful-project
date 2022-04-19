@@ -2,7 +2,9 @@
   <div class="forth-box">
     <!-- 分析年龄 -->
     <common-echart :pos="a" :option="option1" @getMychart="getMychart" width="160" height="80"></common-echart>
-    <common-echart :pos="c" :option="option3" @getMychart="getMychart" width="160" height="80"></common-echart>    
+    <!-- 分析性别 -->
+    <common-echart :pos="c" :option="option3" @getMychart="getMychart" width="160" height="80"></common-echart>
+    <!-- 分析年龄 -->
     <common-echart :pos="b" :option="option2" @getMychart="getMychart2" width="160" height="80"></common-echart>
     <!-- 分析性别 -->
     <common-echart :pos="d" :option="option4" @getMychart="getMychart2" width="160" height="80"></common-echart>
