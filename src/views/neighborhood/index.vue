@@ -36,7 +36,7 @@
 
 		<!-- 右边 -->
 		<template #first2>
-			<chart-bg name="设备实时统计">
+			<chart-bg name="积分排名">
 				<!-- 给chart-bg组件传具体的图表 -->
 				<template #main>
 
@@ -44,7 +44,7 @@
 			</chart-bg>
 		</template>
 		<template #second2>
-			<chart-bg name="工单实时统计">
+			<chart-bg name="积分兑换分析">
 				<!-- 给chart-bg组件传具体的图表 -->
 				<template #main>
 					<second-right pos="neighborhood-second-right"></second-right>
@@ -52,32 +52,26 @@
 			</chart-bg>
 		</template>
 		<template #third2>
-			<chart-bg name="AI事件统计">
+			<chart-bg name="热门商品兑换TOP">
 				<!-- 给chart-bg组件传具体的图表 -->
 				<template #main>
 					<third-right pos="neighborhood-third-right"></third-right>
 				</template>
 			</chart-bg>
 		</template>
-		<template #forth2>
-			<chart-bg name="品质管理统计（年）">
-				<!-- 给chart-bg组件传具体的图表 -->
-				<template #main>
 
-				</template>
-			</chart-bg>
-		</template>
 	</bg>
 </template>
 <script setup>
 import bg from '@/components/bg.vue'
 import chartBg from '@/components/chartBg.vue'
+// 左边
 // import firstLeft from './echarts/firstLeft.vue'
 import secondLeft from './echarts/secondLeft.vue'
 import thirdLeft from './echarts/thirdLeft.vue'
 import forthLeft from './echarts/forthLeft.vue'
-
-// import secondRight from './echarts/secondRight.vue'
+// 右边
+import secondRight from './echarts/secondRight.vue'
 // import thirdRight from './echarts/thirdRight.vue'
 
 // let t = '积分总数'
