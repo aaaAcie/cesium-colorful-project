@@ -30,6 +30,7 @@ onMounted(()=>{
 // 点击改变按钮隐藏
 function clickAccess() {
 	data.cesium3d.earthRotate(false)
+  data.cesium3d.access()
 	initBool.value = false
 }
 </script>

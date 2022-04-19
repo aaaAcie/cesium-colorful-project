@@ -42,17 +42,17 @@ class Cesium3d{
        // 影像的亮度
        img.brightness = 0.8
        // 天地图标注
-       let label = viewer.imageryLayers.addImageryProvider(new Cesium.WebMapTileServiceImageryProvider({
-           url: "http://t0.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg" + "&tk=" + "19b72f6cde5c8b49cf21ea2bb4c5b21e",
-           layer: "tdtAnnoLayer",
-           style: "default",
-           maximumLevel: 18, // 天地图的最大缩放级别
-           format: "image/jpeg",
-           tileMatrixSetID: "GoogleMapsCompatible",
-           show: false
-       }))
-       // 影像的亮度
-       label.brightness = 0.8
+    //    let label = viewer.imageryLayers.addImageryProvider(new Cesium.WebMapTileServiceImageryProvider({
+    //        url: "http://t0.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg" + "&tk=" + "19b72f6cde5c8b49cf21ea2bb4c5b21e",
+    //        layer: "tdtAnnoLayer",
+    //        style: "default",
+    //        maximumLevel: 18, // 天地图的最大缩放级别
+    //        format: "image/jpeg",
+    //        tileMatrixSetID: "GoogleMapsCompatible",
+    //        show: false
+    //    }))
+    //    // 影像的亮度
+    //    label.brightness = 0.8
        
        viewer.scene.undergroundMode = false                                  // [ Bool , 设置开启地下场景 ]
        // viewer.scene.screenSpaceCameraController.minimumZoomDistance = 50     // [ Number ,设置相机最小缩放距离,距离地表n米 ]
@@ -61,6 +61,36 @@ class Cesium3d{
        viewer.scene.globe.showGroundAtmosphere = true                        // [ Bool , 是否关闭大气效果 ]
        // viewer.scene.globe.depthTestAgainstTerrain = true                  // [ Bool , 地面以下不可见（高程遮挡） ]
        viewer._cesiumWidget._creditContainer.style.display = "none" 
+    //    viewer.camera.setView({
+    //     destination:Cesium.Cartesian3.fromDegrees(121.626568,29.898417,0), //destination用于设置经纬度位置和相机高度
+    //     orientation:{//orientation设置相机的方向
+    //         heading:Cesium.Math.toRadians(0),
+    //         pitch:Cesium.Math.toRadians(-90.0),
+    //         roll:0.0
+    //     } 
+    // })
+       // 加载3DTiles模型数据
+	   let tileset1=viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+		url: '../../public/cesiumData/BlockBA/tileset.json',
+        maximumScreenSpaceError:1, //最大的屏幕空间误差
+		maximumNumberOfLoadedTiles:1000, //最大加载瓦片个数
+	   }))
+       let tileset2=viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+		url: '../../public/cesiumData/BlockBX/tileset.json',
+        maximumScreenSpaceError:1, //最大的屏幕空间误差
+		maximumNumberOfLoadedTiles:1000, //最大加载瓦片个数
+	   }))
+       let tileset3=viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+		url: '../../public/cesiumData/BlockYA/tileset.json',
+        maximumScreenSpaceError:1, //最大的屏幕空间误差
+		maximumNumberOfLoadedTiles:1000, //最大加载瓦片个数
+	   }))
+       let tileset4=viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+		url: '../../public/cesiumData/BlockYX/tileset.json',
+        maximumScreenSpaceError:1, //最大的屏幕空间误差
+		maximumNumberOfLoadedTiles:1000, //最大加载瓦片个数
+	   }))
+       // 地球自转开始
        this.earthRotate(true)
     }
     // 地球自转控制
@@ -79,5 +109,16 @@ class Cesium3d{
 		nowI = t
 	    viewer.scene.camera.rotate(Cesium.Cartesian3.UNIT_Z, -a * n)
 	}
+    // 飞入指定地点
+    access(){
+        viewer.scene.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(121.60886,29.892052,500), // 世界坐标点
+            orientation: {
+                heading: 6.2495626988216,
+                pitch: -0.7591124304684471,
+                roll: 6.283037533269935
+            }
+        })
+    }
 }
 export default Cesium3d
