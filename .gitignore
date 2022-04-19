@@ -13,7 +13,7 @@ dist-ssr
 src/Cesium
 *.local
 src/assets/img
-
+public/cesiumData
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
